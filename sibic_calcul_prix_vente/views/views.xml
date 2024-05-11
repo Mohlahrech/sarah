@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="sibic_calcul_prix_vente.list">
+      <field name="name">Sibic_calcul_prix_vente list</field>
+      <field name="model">sibic_calcul_prix_vente.sibic_calcul_prix_vente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="sibic_calcul_prix_vente.action_window">
+      <field name="name">Sibic_calcul_prix_vente window</field>
+      <field name="res_model">sibic_calcul_prix_vente.sibic_calcul_prix_vente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="sibic_calcul_prix_vente.action_server">
+      <field name="name">Sibic_calcul_prix_vente server</field>
+      <field name="model_id" ref="model_sibic_calcul_prix_vente_sibic_calcul_prix_vente"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="Sibic_calcul_prix_vente" id="sibic_calcul_prix_vente.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sibic_calcul_prix_vente.menu_1" parent="sibic_calcul_prix_vente.menu_root"/>
+    <menuitem name="Menu 2" id="sibic_calcul_prix_vente.menu_2" parent="sibic_calcul_prix_vente.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sibic_calcul_prix_vente.menu_1_list" parent="sibic_calcul_prix_vente.menu_1"
+              action="sibic_calcul_prix_vente.action_window"/>
+    <menuitem name="Server to list" id="sibic_calcul_prix_vente" parent="sibic_calcul_prix_vente.menu_2"
+              action="sibic_calcul_prix_vente.action_server"/>
+-->
+  </data>
+</odoo>

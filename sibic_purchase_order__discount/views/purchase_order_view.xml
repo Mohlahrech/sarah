@@ -1,0 +1,26 @@
+
+<odoo>
+    <record id="purchase_order_lines_discount" model="ir.ui.view">
+        <field name="name">purchase order lines discount</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                <field name="discount" groups="base.group_no_one" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="Sibic_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">Sibic purchase order form inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']" position="after">
+                <group >
+                    <field name="sibic_discount"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

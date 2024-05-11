@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="cachet_devis_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='page']" position="after">
+            <t t-if="doc.cachet">
+                <div style="position: absolute; top: 10; right: 0;">
+                    <img src="custom_cachet_devis/static/image.png" alt="Your Image Description"/>
+                </div>
+
+            </t>
+
+        </xpath>
+
+    </template>
+</odoo>
+
+
+
+
+
+
+
+

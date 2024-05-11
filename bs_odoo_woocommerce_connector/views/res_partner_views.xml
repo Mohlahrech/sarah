@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="woocommerce_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='accounting']" position="after">
+                <page string="WooCommerce">
+                    <group>
+                        <group>
+                            <field name="woo_customer_id" readonly="1"/>
+                             <field name="is_guest" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="attrs">{'required': [('user_ids','!=', [])]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="woo_customer_role"/>
+                <field name="woo_user_name"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

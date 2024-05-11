@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="woocommerce_log_tree_view" model="ir.ui.view">
+            <field name="name">woocommerce.log.tree.view</field>
+            <field name="model">synchronization.log</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="operation_type"/>
+                    <field name="create_date"/>
+                    <field name="status_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="woocommerce_log_form_view" model="ir.ui.view">
+            <field name="name">woocommerce.log.form.view</field>
+            <field name="model">synchronization.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form create="false">
+                    <sheet>
+                        <group col="4">
+                            <field name="company_id" readonly="1"/>
+                            <field name="operation_type" readonly="1"/>
+                            <field name="operation_on" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                            <field name="model" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="url" readonly="1"/>
+                            <field name="method" readonly="1"/>
+                            <field name="status_code" readonly="1"/>
+                            <field name="failed_ids" readonly="1"/>
+                            <field name="message" attrs="{'invisible':[('status_code','=',200)]}" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_woo_logs" model="ir.actions.act_window">
+            <field name="name">Logs</field>
+            <field name="res_model">synchronization.log</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+    <record id="group_sale_manager_dusal" model="res.groups">
+        <field name="name">Afficher le prix de revient des produits</field>
+    </record>
+    <record id="group_dusal_show_saleprice" model="res.groups">
+        <field name="name">Afficher le prix de vente des produits</field>
+    </record>
+</data>
+</openerp>

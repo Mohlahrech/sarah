@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('client-details-right')]" position="inside">
+             <div class="client-detail">
+                <span class="label">Points de fidélité</span>
+                <input class="detail barcode2" name="barcode2" t-on-change="captureChange"
+                       t-att-value="props.partner.barcode2 || ''" />
+            </div>
+
+             <div class="client-detail">
+                <span class="label">Fait ses achats a</span>
+                            <select class="detail achats" name="achats_option" t-on-change="captureChange"
+                                    t-att-value="props.partner.achats_option || ''">
+                    <option value="">Choisis une option</option>
+                                <t t-foreach="[['magasin', 'Au magasin'], ['siteweb', 'Depuis le siteweb'], ['Réseaux', 'Via réseaux']]"
+                                   t-as="option">
+                        <option t-att-value="option[0]"><t t-esc="option[1]"/></option>
+                    </t>
+                </select>
+            </div>
+
+
+
+        </xpath>
+
+    </t>
+
+
+
+</templates>

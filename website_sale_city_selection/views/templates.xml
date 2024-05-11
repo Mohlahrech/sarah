@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <!-- <template id="assets_frontend" inherit_id="website.assets_frontend">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/website_sale_city_selection/static/src/js/city.js"/>
+            </xpath>
+        </template> -->
+
+        <template id="address" inherit_id="website_sale.address">
+            <xpath expr="//select[@name='state_id']" position="attributes">
+                <attribute name="id">state_id</attribute>
+            </xpath>
+
+            <xpath expr="//input[@name='city']/.." position="attributes">
+                <attribute name="t-att-style">
+                    (((country and country.state_ids and state and state.city_ids) or not country) and 'display: none')
+                </attribute>
+            </xpath>
+
+            <xpath expr="//select[@name='state_id']/.." position="after">
+                <div t-attf-class="form-group #{error.get('city_id') and 'o_has_error' or ''} col-lg-6 div_city_id"
+                     t-att-style="(not country or not country.state_ids or not state or (state and not state.city_ids)) and 'display: none'">
+                    <label class="col-form-label" for="city_id">City</label>
+                    <select id="city_id" name="city_id"
+                            t-attf-class="form-control #{error.get('city_id') and 'is-invalid' or ''}"
+                            data-init="1">
+                        <option value="">City...</option>
+                        <t t-foreach="country and country.state_ids and state and state.city_ids or []" t-as="ct">
+                            <option t-att-value="ct.id"
+                                    t-att-selected="ct.id == ('city_id' in checkout and state and checkout['city_id'] != '' and int(checkout['city_id']))">
+                                <t t-esc="ct.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </xpath>
+        </template>
+    </data>
+
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>res.partner</value>
+        <value eval="['city_id']"/>
+    </function>
+</odoo>

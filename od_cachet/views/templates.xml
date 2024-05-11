@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="cachet_custom_template" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@name='signature']/div/strong" position="replace">
+                <strong></strong>
+            </xpath>
+        </template>
+    </data>
+</odoo>

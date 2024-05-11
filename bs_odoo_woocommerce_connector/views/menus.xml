@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<menuitem id="parent_woo_connector" web_icon="bs_odoo_woocommerce_connector,static/description/icon.png" name="WooConnector" groups="base.group_user" />
+		<menuitem id="menu_woo_configuration" name="Configurations" parent="parent_woo_connector" groups="base.group_user" sequence="1" />
+		<menuitem id="menu_logs" name="Logs" parent="parent_woo_connector" action="action_woo_logs" groups="base.group_user" sequence="2"/>
+	</data>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_woo_inherit" model="ir.ui.view">
+        <field name="name">sale.order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="woo_create_date" />
+                <field name="is_woo_order" invisible="1"/>
+            </field>
+            <page name="customer_signature" position="before">
+                <page string="WooCommerce" attrs="{'invisible': [('is_woo_order' ,'=', False)]}">
+                    <group>
+                        <group>
+                            <group name="shipping address" string="Shipping">
+                                <field name="shipping_first_name" readonly="1"/>
+                                <field name="shipping_last_name" readonly="1"/>
+                                <field name="shipping_address1" readonly="1"/>
+                                <field name="shipping_address2" readonly="1"/>
+                                <field name="shipping_city" readonly="1"/>
+                                <field name="shipping_state" readonly="1"/>
+                                <field name="shipping_postcode" readonly="1"/>
+                                <field name="shipping_country_iso" readonly="1"/>
+                                <field name="shipping_email" readonly="1"/>
+                                <field name="shipping_phone" readonly="1"/>
+                            </group>
+                            <group name="billing address" string="Billing">
+                                <field name="billing_first_name" readonly="1"/>
+                                <field name="billing_last_name" readonly="1"/>
+                                <field name="billing_address1" readonly="1"/>
+                                <field name="billing_address2" readonly="1"/>
+                                <field name="billing_city" readonly="1"/>
+                                <field name="billing_state" readonly="1"/>
+                                <field name="billing_postcode" readonly="1"/>
+                                <field name="billing_country_iso" readonly="1"/>
+                                <field name="billing_email" readonly="1"/>
+                                <field name="billing_phone" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="WoCommerce Info">
+                            <field name="woo_instance_id" readonly="1"/>
+                            <field name='woo_order_id' readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

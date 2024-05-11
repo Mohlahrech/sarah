@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="external_layout_standard_ms" inherit_id="web.external_layout_standard">
+         <xpath expr="//div[contains(@t-attf-class, 'header')]" position="replace">
+                <div class="header" style="width: 100%;height: 100%;">
+                   <img src="custom_header_footer/static/image.png" alt="Your Image Description"/>
+                </div>
+            </xpath>
+
+           <!-- Set background image for the existing footer div -->
+        <!-- Add the following xpath for customizing the footer -->
+        <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="replace">
+            <div class="footer" style="width: 100%;height: 100%;">
+                <img src="custom_header_footer/static/image2.png" alt="Your Image Description"
+                    t-att-width="1000" t-att-height="150"/>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>
+
+
+
+
+
+
+
+

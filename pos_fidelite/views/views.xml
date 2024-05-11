@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+    <record id="view_pos_order_tree_inherited" model="ir.ui.view">
+      <field name="name">pos.order.tree.inherited</field>
+      <field name="model">pos.order</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_total']" position="after">
+          <!-- Add your new field here -->
+          <field name="amount_total_divided_by_50" sum="Amount totals" string="Points de fidélité" readonly="1"/>
+
+        </xpath>
+      </field>
+    </record>
+
+    <record id="moh_order_tree_inherited" model="ir.ui.view">
+      <field name="name">moh.order.form.inherited</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+          <!-- Add your new field here -->
+<!--          <field name="barcode2" string="Code-bare" />-->
+          <field name="barcode2" string="Points de fidélité" attrs="{'invisible': [('function_test', '=', True)]}" readonly="1"/>
+          <button name="action_test" string="Attribuer les points" type="object" attrs="{'invisible': [('function_test', '=', True)]}"/>
+          <button name="action_test2" string="Restaurer la fidélité" type="object" attrs="{'invisible': [('function_test', '=', False)]}"/>
+          <field name="action_test_date" string=" Les point ont été attribués et sont valides jusqu'au" readonly="1" attrs="{'invisible': [('function_test', '=', False)]}"/>
+          <field name="function_test" string="Points de fidélité" invisible="1"/>
+
+
+        </xpath>
+
+      </field>
+    </record>
+  </data>
+</odoo>

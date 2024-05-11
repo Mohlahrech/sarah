@@ -1,0 +1,50 @@
+<odoo>
+    <record model="ir.ui.view" id="import_from_ecom_provider_woocommerce_form_view">
+        <field name="name">import.from.ecom.provider.woocommerce.form.view</field>
+        <field name="model">import.from.ecom.provider</field>
+        <field name="inherit_id" ref="eg_ecommerce_base.import_from_ecom_provider_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group[1]" position="after">
+                <h3 class="import_update_warning" style="color:red;" attrs="{'invisible': ['|', ('mapping_type', '!=', 'import'), ('provider', '!=', 'eg_woocommerce')]}">If You use Import Product with stock, Categories, Backorder details and Product Image so upgrade to Pro Version</h3>
+                <h3 class="export_update_warning" style="color:red;" attrs="{'invisible': ['|', ('mapping_type', '!=', 'export'), ('provider', '!=', 'eg_woocommerce')]}">If You use Export Product Stock, Backorder, Product Categories so Upgrade to Pro Version</h3>
+                <group attrs="{'invisible': ['|', ('mapping_type', '!=', 'import'), ('provider', '!=', 'eg_woocommerce')]}">
+                    <group string="Product">
+                        <field name="import_product"/>
+                    </group>
+                    <group string="Attribute">
+                        <field name="import_product_attribute"/>
+                        <field name="import_product_attribute_value"/>
+                    </group>
+                    <group string="Tax">
+                        <field name="import_woo_tax_class"/>
+                        <field name="import_woo_tax_rate"/>
+                    </group>
+                    <group string="Other">
+                        <field name="import_woo_payment_gateway"/>
+                        <field name="import_customer"/>
+                        <field name="import_sale_order"/>
+                        <field name="import_woo_product_coupon"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': ['|', ('mapping_type', '!=', 'export'), ('provider', '!=', 'eg_woocommerce')]}">
+                    <group string="Product">
+                        <field name="export_product"/>
+                    </group>
+                    <group string="Attribute">
+                        <field name="export_product_attribute"/>
+                        <field name="export_product_attribute_value"/>
+                    </group>
+                    <group string="Other">
+                        <field name="export_woo_tax_rate"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': ['|', ('mapping_type', '!=', 'update_import'), ('provider', '!=', 'eg_woocommerce')]}" name="update_import">
+                    <h2 style="color:red;">If you use Update Import features so Upgrade to Pro Version</h2>
+                </group>
+                <group attrs="{'invisible': ['|', ('mapping_type', '!=', 'update_export'), ('provider', '!=', 'eg_woocommerce')]}" name="update_export_group">
+                     <h2 style="color:red;">If you use Update Export features so Upgrade to Pro Version</h2>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

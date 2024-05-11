@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user_woo_configuration,woo.conf,model_woo_configuration,group_woo_commerce_user,1,0,0,0
+access_admin_woo_configuration,woo.conf,model_woo_configuration,group_woo_commerce_manager,1,1,1,1
+
+access_user_woo_logs,woo.logs,model_synchronization_log,group_woo_commerce_user,1,0,0,0
+access_admin_woo_logs,woo.logs,model_synchronization_log,group_woo_commerce_manager,1,1,1,1

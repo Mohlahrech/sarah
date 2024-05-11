@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="stock.product_template_action_product" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="context">{'default_available_in_pos': 'True'}</field>
+
+        </record>
+    </data>
+</odoo>

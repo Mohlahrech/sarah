@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="guest_partner" model="res.partner">
+        <field name="name">Guest Partner</field>
+        <field name="is_guest">True</field>
+    </record>
+</odoo>

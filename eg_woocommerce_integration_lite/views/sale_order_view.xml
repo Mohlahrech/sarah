@@ -1,0 +1,12 @@
+<odoo>
+    <record id="sale_order_view_for_woocommerce_integration" model="ir.ui.view">
+        <field name="name">sale.order.form.view.for.woocommerce.integration</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="before">
+                <field name="instance_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

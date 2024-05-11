@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_partner_extra_field_form_view">
+            <field name="name">res.partner.extra.field.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="achats_option"/>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="barcode"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+
+        <record id="view_res_partner_filter_inherited" model="ir.ui.view">
+            <field name="name">res.partner.select.inherited</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='group_by']" position="inside">
+                         <filter name="achats_option" string="lieu d'achat" context="{'group_by': 'achats_option'}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

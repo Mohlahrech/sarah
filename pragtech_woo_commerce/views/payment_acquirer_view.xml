@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="action_payment_acquirer" model="ir.actions.act_window">-->
+<!--        <field name="name">Payment Acquirers</field>-->
+<!--        <field name="res_model">payment.acquirer</field>-->
+<!--        <field name="view_mode">kanban,tree,form</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Create a new payment acquirer-->
+<!--            </p>-->
+<!--        </field>-->
+<!--    </record>-->
+    <record id="woo_inherit_payment_acquirer_form" model="ir.ui.view">
+        <field name="name">payment.acquirer.form</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.payment_acquirer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='payment_state']" position="after">
+                <group>
+                    <field name="woo_id"/>
+                    <field name="is_exported"/>
+                    <field name="woo_instance_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="woo_inherit_payment_acquirer_list" model="ir.ui.view">
+        <field name="name">payment.acquirer.list</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.payment_acquirer_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="woo_id"/>
+                <field name="is_exported"/>
+                <field name="woo_instance_id"/>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="view_payment_provider_search_inherit_woo_commerce" model="ir.ui.view">
+        <field name="name">payment.acquirer.search.inherit.woo.commerce</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.payment_acquirer_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='provider']" position="after">
+                <separator/>
+                <filter string="Woo Synced Payment Methods" name="woo_imported_coupons" domain="[('is_exported', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_woo_payment_acquirer" model="ir.actions.act_window">
+        <field name="name">Payment method</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">payment.acquirer</field>
+<!--        <field name="view_id" ref="coupon.coupon_view_tree"/>-->
+        <field name="context">{'search_default_woo_imported_coupons': 1}</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="cachet_invoice_report" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@class='page']" position="after">
+            <t t-if="o.cachet">
+                <div style="position: absolute; top: 10; right: 0;">
+                    <img src="custom_cachet_facture/static/image.png" alt="Your Image Description"/>
+                </div>
+
+            </t>
+
+        </xpath>
+
+    </template>
+</odoo>
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="sibic_purchasesearch_inherit" model="ir.ui.view">
+        <field name="name">sibic purchase search inherit</field>
+        <field name="model">purchase.report</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_search"/> 
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_date_approve']" position="after">
+                <separator/>
+                <filter string="Today" name="today" domain="[('date_order','&gt;=',time.strftime('%%Y-%%m-%%d'))]"/>
+                <filter string="This Month" name="thismonth" domain="[('date_order','&gt;=',time.strftime('%%Y-%%m-01'))]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>    
+  </data>
+</odoo>

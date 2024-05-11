@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="module_category_woo_commerce">
+            <field name="name">Woo Commerce</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="group_woo_commerce_user" model="res.groups">
+            <field name="name">WooCommerce User</field>
+            <field name="category_id" ref="module_category_woo_commerce"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_woo_commerce_manager" model="res.groups">
+            <field name="name">WooCommerce Manager</field>
+            <field name="category_id" ref="module_category_woo_commerce"/>
+            <field name="implied_ids" eval="[(4, ref('group_woo_commerce_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]" />
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="import_invoice_inherit_form" model="ir.ui.view">
+            <field name="name">import.invoice.inherit.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name='invoice_date' position="after">
+                    <field name="custom_sequence" invisible="1"/>
+                    <field name="system_sequence" invisible="1"/>
+                </field>
+
+            </field>
+        </record>
+        <record id="import_account_invoice_wizard_view_form" model="ir.ui.view">
+            <field name="name">import.account.invoice.views</field>
+            <field name="model">import.account.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Import Invoice">
+                    <group>
+                        <group>
+                            <field name="import_file" widget='radio'/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="type" widget="radio"/>
+                            </group>
+                        </group>
+
+                    </group>
+                    <group>
+                        <group>
+                            <field name="import_product_search" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="sequence_available" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="account_available" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="file" filename="name"/>
+                        </group>
+                        <group>
+                            <field name="invoice_stage" widget="radio"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button class="fa fa-upload btn-primary" name="import_csv" string="Import" type="object"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="import_account_invoice_wizard_action" model="ir.actions.act_window">
+            <field name="name">Import Invoice</field>
+            <field name="res_model">import.account.invoice</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="import_account_invoice_wizard_action"
+                  id="import_account_invoice_wizard_import_menu"
+                  parent="account.menu_finance_receivables"
+                  groups="pragtech_import_invoice.group_import_invoice"/>
+
+    </data>
+</odoo>
+ 

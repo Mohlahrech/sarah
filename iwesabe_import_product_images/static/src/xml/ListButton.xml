@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+	<t t-name="ListView.buttons" t-extend="ListView.buttons">
+		<t t-jquery="div.o_list_buttons" t-operation="append">
+			<button t-if="widget.modelName=='product.product'" type="button" class="btn btn-primary o_open_varient_import_imag">
+				Import Images
+			</button>
+			<button t-if="widget.modelName=='product.template'" type="button" class="btn btn-primary o_open_template_import_imag">
+				Import Images
+			</button>
+		</t>
+	</t>
+
+</templates>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sibic_calcul_prix_vente_sibic_calcul_prix_vente,sibic_calcul_prix_vente.sibic_calcul_prix_vente,model_sibic_calcul_prix_vente_sibic_calcul_prix_vente,base.group_user,1,1,1,1
